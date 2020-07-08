@@ -3,31 +3,43 @@ import { Link } from "react-router-dom";
 
 const Item = ({ info }) => {
   console.log(info);
-  const { Title, Year, imdbID, Type, Poster } = info;
+  const { title, vote_average, release_date, popularity, poster_path } = info;
+  const imgPrefix = "https://image.tmdb.org/t/p/w500/";
   return (
-    <div class="col s6 m6">
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src={Poster} />
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p>
-              <hr></hr>
-              {Title}
-              <hr></hr>
-              Year: {Year}
-              <br></br>
-              Genre: {Type}
-              <br></br>
-            </p>
+    <>
+      {poster_path === null ? (
+        <> </>
+      ) : (
+        <div class="col s6 m8">
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src={imgPrefix + poster_path} />
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p>
+                  <hr></hr>
+                  {title}
+                  <hr></hr>
+                  <span style={{ fontWeight: "bold" }}>Release:</span>{" "}
+                  {release_date}
+                  <br></br>
+                  <span style={{ fontWeight: "bold" }}>Popularity:</span>{" "}
+                  {Math.round(popularity)}%<br></br>
+                  <span style={{ fontWeight: "bold" }}>Rating:</span>{" "}
+                  {vote_average}
+                </p>
+              </div>
+              <div class="card-action">
+                <div className="btn">
+                  Favorite <i className="material-icons left">favorite</i>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-action">
-            <a href="#">This is a link</a>
-          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
