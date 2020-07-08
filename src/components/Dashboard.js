@@ -12,6 +12,7 @@ const Dashboard = () => {
       <BrowserRouter>
         <Search />
         <LocalNav />
+        {""}
         <Switch>
           <Route
             exact
