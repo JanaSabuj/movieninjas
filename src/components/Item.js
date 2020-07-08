@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import {
   updateFavorites,
@@ -47,7 +48,13 @@ const Item = ({
               <div className="card-content">
                 <div>
                   <hr></hr>
-                  {title}
+                  <Link
+                    to={"/details/" + info.id}
+                    className="nav-link"
+                    style={{ fontWeight: "bold" }}
+                  >
+                    {title}{" "}
+                  </Link>
                   <hr></hr>
                   <span style={{ fontWeight: "bold" }}>Release:</span>{" "}
                   {release_date}
