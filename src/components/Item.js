@@ -10,17 +10,17 @@ const Item = ({ info }) => {
       {poster_path === null ? (
         <> </>
       ) : (
-        <div class="col s12 m6">
-          <div class="card horizontal">
-            <div class="card-image">
+        <div className="col s12 m6">
+          <div className="card horizontal">
+            <div className="card-image">
               <img
                 src={imgPrefix + poster_path}
                 style={{ width: "320px", height: "320px" }}
               />
             </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <p>
+            <div className="card-stacked">
+              <div className="card-content">
+                <div>
                   <hr></hr>
                   {title}
                   <hr></hr>
@@ -31,9 +31,9 @@ const Item = ({ info }) => {
                   {Math.round(popularity)}%<br></br>
                   <span style={{ fontWeight: "bold" }}>Rating:</span>{" "}
                   {vote_average}
-                </p>
+                </div>
               </div>
-              <div class="card-action">
+              <div className="card-action">
                 <div className="btn">
                   Favorite <i className="material-icons left">favorite</i>
                 </div>

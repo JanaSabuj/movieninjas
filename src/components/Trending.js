@@ -7,7 +7,7 @@ const Trending = ({ movies }) => {
   console.log(movies);
   return (
     <div className="row container">
-      {movies.length && movies.map((el) => <Item info={el} key={el.imdbID} />)}
+      {movies.length && movies.map((el) => <Item info={el} key={el.id} />)}
     </div>
   );
 };
