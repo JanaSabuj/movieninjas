@@ -10,10 +10,13 @@ const Item = ({ info }) => {
       {poster_path === null ? (
         <> </>
       ) : (
-        <div class="col s6 m8">
+        <div class="col s12 m6">
           <div class="card horizontal">
             <div class="card-image">
-              <img src={imgPrefix + poster_path} />
+              <img
+                src={imgPrefix + poster_path}
+                style={{ width: "320px", height: "320px" }}
+              />
             </div>
             <div class="card-stacked">
               <div class="card-content">
