@@ -3,7 +3,6 @@ import { SET_UPDATE_TRENDING } from "./movieTypes";
 
 export const updateTrending = (movieData) => {
   return (dispatch) => {
-    console.log(movieData);
     dispatch(setUpdateTrending(movieData));
   };
 };

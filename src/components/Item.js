@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Item = ({ info }) => {
-  console.log(info);
   const { title, vote_average, release_date, popularity, poster_path } = info;
   const imgPrefix = "https://image.tmdb.org/t/p/w500/";
   return (
@@ -15,6 +13,7 @@ const Item = ({ info }) => {
             <div className="card-image">
               <img
                 src={imgPrefix + poster_path}
+                alt={title}
                 style={{ width: "320px", height: "320px" }}
               />
             </div>

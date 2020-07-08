@@ -3,23 +3,23 @@ import { connect } from "react-redux";
 import axios from "axios";
 
 import Item from "./Item";
-import { top_rated } from "../api/Api";
+import { top_rated as topRatedURL } from "../api/Api";
 
 import { updateTrending } from "../redux/movie/movieActions";
 
 const Trending = ({ movies, updateTrending }) => {
   useEffect(() => {
-    console.log("Before call", movies);
-    axios
-      .get(top_rated)
-      .then((res) => {
-        console.log(top_rated);
-        console.log(res.data.results);
-        updateTrending(res.data.results);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (movies.length == 0) {
+      console.log("triggered Trending");
+      axios
+        .get(topRatedURL)
+        .then((res) => {
+          updateTrending(res.data.results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
 
   return (

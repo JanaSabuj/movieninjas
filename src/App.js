@@ -9,7 +9,6 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 
 const App = () => {
-  const API = "http://www.omdbapi.com/?i=tt3896198&apikey=d7db91d5";
   return (
     <>
       <Provider store={store}>
