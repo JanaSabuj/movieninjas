@@ -1,9 +1,9 @@
 import React from "react";
 import Search from "./Search";
 import LocalNav from "./LocalNav";
+import Trending from "./Trending";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import About from "./About";
 
 const Dashboard = () => {
   return (
@@ -13,7 +13,11 @@ const Dashboard = () => {
         <Search />
         <LocalNav />
         <Switch>
-          <Route exact path={["/", "/dashboard/trending"]} component={About} />
+          <Route
+            exact
+            path={["/", "/dashboard/trending"]}
+            component={Trending}
+          />
         </Switch>
       </BrowserRouter>
     </div>

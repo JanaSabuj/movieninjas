@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const LocalNav = ({ match }) => {
+const LocalNav = () => {
   return (
     <>
       <div className="section container left-align">
