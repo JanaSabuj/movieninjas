@@ -9,6 +9,7 @@ const Navbar = () => {
             <NavLink to="/" className="brand-logo center active">
               movie ninjas
             </NavLink>
+
             <ul id="nav-mobile" className="right">
               <li>
                 <NavLink to="/about">
