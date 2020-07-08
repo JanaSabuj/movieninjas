@@ -6,6 +6,7 @@ import About from "./components/About";
 import Dashboard from "./components/Dashboard";
 
 const App = () => {
+  const API = "http://www.omdbapi.com/?i=tt3896198&apikey=d7db91d5";
   return (
     <>
       <BrowserRouter>
