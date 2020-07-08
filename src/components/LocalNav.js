@@ -1,25 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const LocalNav = () => {
   return (
     <>
       <div className="section container left-align">
-        <Link
+        <NavLink
           className="waves-effect waves-light btn blue-grey darken-4"
           style={{ marginRight: "10px", marginTop: "5px" }}
           to="/dashboard/trending"
+          activeClassName="activeLinkGreen"
         >
           <i className="material-icons left">trending_up</i>
           Trending
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           className="waves-effect waves-light btn blue-grey darken-4"
           style={{ marginRight: "10px", marginTop: "5px" }}
           to="/dashboard/favorites"
+          activeClassName="activeLinkRed"
         >
           <i className="material-icons left">favorite</i>Favorites
-        </Link>
+        </NavLink>
         <div className="divider"></div>
       </div>
     </>

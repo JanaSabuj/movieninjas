@@ -11,3 +11,11 @@ body {
   font-family: "Oxygen", sans-serif;
   text-align: center;
 }
+
+.activeLinkGreen {
+  color: rgb(12, 243, 12);
+}
+
+.activeLinkRed {
+  color: red;
+}
