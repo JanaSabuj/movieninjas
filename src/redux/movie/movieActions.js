@@ -1,4 +1,3 @@
-import axios from "axios";
 import { SET_UPDATE_TRENDING } from "./movieTypes";
 
 export const updateTrending = (movieData) => {

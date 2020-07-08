@@ -6,25 +6,34 @@ import Item from "./Item";
 import { top_rated as topRatedURL } from "../api/Api";
 
 import { updateTrending } from "../redux/movie/movieActions";
+import Preloader from "./Preloader";
 
 const Trending = ({ movies, updateTrending }) => {
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    if (movies.length == 0) {
+    if (movies.length === 0) {
       console.log("triggered Trending");
+      setLoading(true);
       axios
         .get(topRatedURL)
         .then((res) => {
           updateTrending(res.data.results);
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
+          setLoading(false);
         });
     }
   }, []);
 
   return (
     <div className="row container">
-      {movies.length && movies.map((el) => <Item info={el} key={el.id} />)}
+      {loading ? (
+        <Preloader />
+      ) : (
+        movies.length && movies.map((el) => <Item info={el} key={el.id} />)
+      )}
     </div>
   );
 };
