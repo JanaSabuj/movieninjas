@@ -10,7 +10,7 @@ const Navbar = () => {
               to="/dashboard/trending"
               className="brand-logo center active"
             >
-              movie ninjas
+              movieDB
             </NavLink>
 
             <ul id="nav-mobile" className="right">

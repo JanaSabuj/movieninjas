@@ -1,4 +1,8 @@
-import { SET_UPDATE_TRENDING, SET_UPDATE_FAVORITES } from "./movieTypes";
+import {
+  SET_UPDATE_TRENDING,
+  SET_UPDATE_FAVORITES,
+  SET_DELETE_FAVORITES,
+} from "./movieTypes";
 
 export const updateTrending = (movieData) => {
   return (dispatch) => {
@@ -15,7 +19,7 @@ export const updateTrending = (movieData) => {
       });
     }
 
-    console.log(newData);
+    // console.log(newData);
     dispatch(setUpdateTrending(newData));
   };
 };
@@ -27,6 +31,13 @@ export const updateFavorites = (movieItem) => {
   };
 };
 
+export const deleteFavorites = (movieId) => {
+  return (dispatch, getState) => {
+    // console.log(getState().movieReducer); // global state
+    dispatch(setDeleteFavorites(movieId));
+  };
+};
+
 export const setUpdateTrending = (movieData) => {
   return {
     type: SET_UPDATE_TRENDING,
@@ -34,9 +45,16 @@ export const setUpdateTrending = (movieData) => {
   };
 };
 
-export const setUpdateFavorites = (movieItem) => {
+export const setUpdateFavorites = (movie) => {
   return {
     type: SET_UPDATE_FAVORITES,
-    payload: movieItem,
+    payload: movie,
+  };
+};
+
+export const setDeleteFavorites = (id) => {
+  return {
+    type: SET_DELETE_FAVORITES,
+    payload: id,
   };
 };

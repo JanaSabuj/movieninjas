@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { updateFavorites, updateTrending } from "../redux/movie/movieActions";
+import {
+  updateFavorites,
+  updateTrending,
+  deleteFavorites,
+} from "../redux/movie/movieActions";
 
 const Item = ({
   info,
@@ -9,14 +13,16 @@ const Item = ({
   trendingMovies,
   updateFavorites,
   updateTrending,
+  deleteFavorites,
 }) => {
   const { title, rating, release_date, popularity, imgURL, isFavorite } = info;
   const imgPrefix = "https://image.tmdb.org/t/p/w500/";
   const handleClick = (id, isFavorite) => {
     // console.log("click", id, isFavorite);
     // console.log(favoriteMovies, trendingMovies);
-
     if (isFavorite) {
+      info.isFavorite = !info.isFavorite;
+      deleteFavorites(id);
     } else {
       info.isFavorite = !info.isFavorite;
       updateFavorites(info);
@@ -54,12 +60,17 @@ const Item = ({
               <div className="card-action">
                 <div
                   className={
-                    isFavorite ? "btn red darken-1" : "btn green darken-1"
+                    isFavorite
+                      ? "btn waves-effect waves-light red darken-1"
+                      : "btn waves-effect waves-light green darken-1"
                   }
+                  style={{ textAlign: "left" }}
                   onClick={() => handleClick(info.id, isFavorite)}
                 >
                   {isFavorite ? (
-                    <> </>
+                    <>
+                      UNFAV<i className="material-icons right">favorite</i>{" "}
+                    </>
                   ) : (
                     <>
                       Fav{" "}
@@ -87,6 +98,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateTrending: (data) => dispatch(updateTrending(data)),
     updateFavorites: (data) => dispatch(updateFavorites(data)),
+    deleteFavorites: (data) => dispatch(deleteFavorites(data)),
   };
 };
 

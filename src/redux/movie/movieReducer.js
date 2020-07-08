@@ -1,4 +1,8 @@
-import { SET_UPDATE_TRENDING, SET_UPDATE_FAVORITES } from "./movieTypes";
+import {
+  SET_UPDATE_TRENDING,
+  SET_UPDATE_FAVORITES,
+  SET_DELETE_FAVORITES,
+} from "./movieTypes";
 
 const initialState = {
   trendingMovies: [],
@@ -15,9 +19,17 @@ const movieReducer = (state = initialState, action) => {
       };
 
     case SET_UPDATE_FAVORITES:
+      console.log("hi");
       return {
         ...state,
         favoriteMovies: [action.payload, ...state.favoriteMovies],
+      };
+    case SET_DELETE_FAVORITES:
+      return {
+        ...state,
+        favoriteMovies: state.favoriteMovies.filter(
+          (x) => x.id !== action.payload
+        ),
       };
     default:
       return state;
