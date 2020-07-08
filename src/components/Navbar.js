@@ -6,7 +6,10 @@ const Navbar = () => {
       <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper blue-grey darken-4">
-            <NavLink to="/" className="brand-logo center active">
+            <NavLink
+              to="/dashboard/trending"
+              className="brand-logo center active"
+            >
               movie ninjas
             </NavLink>
 
