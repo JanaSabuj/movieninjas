@@ -1,4 +1,4 @@
-import { SET_UPDATE_TRENDING } from "./movieTypes";
+import { SET_UPDATE_TRENDING, SET_UPDATE_FAVORITES } from "./movieTypes";
 
 const initialState = {
   trendingMovies: [],
@@ -12,6 +12,12 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         trendingMovies: action.payload,
+      };
+
+    case SET_UPDATE_FAVORITES:
+      return {
+        ...state,
+        favoriteMovies: [action.payload, ...state.favoriteMovies],
       };
     default:
       return state;
