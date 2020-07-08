@@ -25,7 +25,7 @@ const Trending = ({ movies, updateTrending }) => {
           setLoading(false);
         });
     }
-  }, []);
+  }, [updateTrending, movies.length]);
 
   return (
     <div className="row container">
