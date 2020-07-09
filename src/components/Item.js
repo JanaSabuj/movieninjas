@@ -47,7 +47,6 @@ const Item = ({
             <div className="card-stacked">
               <div className="card-content">
                 <div>
-                  <hr></hr>
                   <Link
                     to={"/details/" + info.id}
                     className="nav-link"

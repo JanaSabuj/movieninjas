@@ -53,7 +53,7 @@ const Search = ({ setResults, movies }) => {
                 className="material-icons red-text text-darken-4"
                 onClick={(e) => handleSubmit(e)}
               >
-                hdr_weak
+                motion_photos_on
               </i>
             ) : (
               <i

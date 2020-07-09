@@ -67,7 +67,6 @@ const ResultItem = ({
             <div className="card-stacked">
               <div className="card-content">
                 <div>
-                  <hr></hr>
                   <Link
                     to={"/details/" + info.id}
                     className="nav-link"
@@ -79,8 +78,8 @@ const ResultItem = ({
                   <span style={{ fontWeight: "bold" }}>Release:</span>{" "}
                   {release_date}
                   <br></br>
-                  <span style={{ fontWeight: "bold" }}>Popularity:</span>{" "}
-                  {Math.round(popularity)}%<br></br>
+                  {/* <span style={{ fontWeight: "bold" }}>Popularity:</span>{" "}
+                  {Math.round(popularity)}%<br></br> */}
                   <span style={{ fontWeight: "bold" }}>Rating:</span> {rating}
                 </div>
               </div>
