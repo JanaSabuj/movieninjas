@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import Item from "./Item";
 
 import NoMovieGeneric from "./NoMovieGeneric";
+import ResultItem from "./ResultItem";
 
 const Results = ({ movies }) => {
   console.log(movies.results);
@@ -11,7 +11,8 @@ const Results = ({ movies }) => {
       {movies === undefined || movies.length <= 0 ? (
         <NoMovieGeneric msg="No Favorite Movies Yet !" />
       ) : (
-        movies.length && movies.map((el) => <Item info={el} key={el.id} />)
+        movies.length &&
+        movies.map((el) => <ResultItem info={el} key={el.id} />)
       )}
     </div>
   );
