@@ -9,7 +9,7 @@ const Results = ({ movies }) => {
   return (
     <div className="row container">
       {movies === undefined || movies.length <= 0 ? (
-        <NoMovieGeneric msg="No Favorite Movies Yet !" />
+        <NoMovieGeneric msg="No Search Results !" />
       ) : (
         movies.length &&
         movies.map((el) => <ResultItem info={el} key={el.id} />)

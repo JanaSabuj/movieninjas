@@ -8,12 +8,15 @@ import { setResults } from "../redux/movie/movieActions";
 
 const Search = ({ setResults, movies }) => {
   const [localData, setLocalData] = useState("Search for a Movie");
+  const [loading, setLoading] = useState(false);
+
   const handleClick = (e) => {
     setLocalData(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const queryParams = {
       api_key: API_KEY,
       query: localData,
@@ -25,9 +28,11 @@ const Search = ({ setResults, movies }) => {
       .get(URL)
       .then((el) => {
         setResults(el.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   };
 
@@ -43,12 +48,21 @@ const Search = ({ setResults, movies }) => {
               onChange={(e) => handleClick(e)}
               required
             />
-            <i
-              className="material-icons grey-text text-darken-4"
-              onClick={(e) => handleSubmit(e)}
-            >
-              search
-            </i>
+            {loading ? (
+              <i
+                className="material-icons red-text text-darken-4"
+                onClick={(e) => handleSubmit(e)}
+              >
+                hdr_weak
+              </i>
+            ) : (
+              <i
+                className="material-icons grey-text text-darken-4"
+                onClick={(e) => handleSubmit(e)}
+              >
+                search
+              </i>
+            )}
           </div>
         </form>
       </div>
