@@ -105,7 +105,7 @@ const ResultItem = ({
                 >
                   {isFavorite ? (
                     <>
-                      UNFAV<i className="material-icons right">favorite</i>{" "}
+                      <i className="material-icons">favorite</i>{" "}
                     </>
                   ) : (
                     <>
@@ -127,7 +127,7 @@ const ResultItem = ({
                 >
                   {isTrending ? (
                     <>
-                      DEL<i className="material-icons right">trending_down</i>{" "}
+                      <i className="material-icons">trending_down</i>{" "}
                     </>
                   ) : (
                     <>

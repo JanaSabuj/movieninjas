@@ -75,7 +75,7 @@ const Item = ({
                 >
                   {isFavorite ? (
                     <>
-                      UNFAV<i className="material-icons right">favorite</i>{" "}
+                      <i className="material-icons">favorite</i>{" "}
                     </>
                   ) : (
                     <>
