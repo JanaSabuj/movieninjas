@@ -7,9 +7,11 @@ import { top_rated as topRatedURL } from "../api/Api";
 
 import { updateTrending } from "../redux/movie/movieActions";
 import Preloader from "./Preloader";
+import NoMovieGeneric from "./NoMovieGeneric";
 
 const Trending = ({ movies, updateTrending }) => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   useEffect(() => {
     if (movies.length === 0) {
       console.log("triggered Trending");
@@ -23,13 +25,16 @@ const Trending = ({ movies, updateTrending }) => {
         .catch((err) => {
           console.log(err);
           setLoading(false);
+          setError(true);
         });
     }
   }, [updateTrending, movies.length]);
 
   return (
     <div className="row container">
-      {loading ? (
+      {error ? (
+        <NoMovieGeneric msg="Network Problem !" />
+      ) : loading ? (
         <Preloader />
       ) : (
         movies.length && movies.map((el) => <Item info={el} key={el.id} />)
