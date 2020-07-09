@@ -3,12 +3,14 @@ import { queryURL, API_KEY } from "../api/Api";
 import { connect } from "react-redux";
 
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import { setResults, setSearchLoading } from "../redux/movie/movieActions";
 
 const Search = ({ setResults, movies, setSearchLoading }) => {
   const [localData, setLocalData] = useState("Search for a Movie");
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   const handleClick = (e) => {
     setLocalData(e.target.value);
@@ -16,6 +18,7 @@ const Search = ({ setResults, movies, setSearchLoading }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    history.push("/dashboard/searchResult");
     setLoading(true);
     const queryParams = {
       api_key: API_KEY,

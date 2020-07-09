@@ -26,7 +26,7 @@ const LocalNav = () => {
           className="waves-effect waves-light btn blue-grey darken-4"
           style={{ marginRight: "10px", marginTop: "5px" }}
           to="/dashboard/searchResult"
-          activeClassName="activeLinkRed"
+          activeClassName="activeLinkYellow"
         >
           <i className="material-icons left">favorite</i>Results
         </NavLink>

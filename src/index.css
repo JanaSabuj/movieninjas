@@ -19,3 +19,7 @@ body {
 .activeLinkRed {
   color: red;
 }
+
+.activeLinkYellow {
+  color: rgb(236, 214, 11);
+}
