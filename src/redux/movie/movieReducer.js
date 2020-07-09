@@ -3,6 +3,8 @@ import {
   SET_UPDATE_FAVORITES,
   SET_DELETE_FAVORITES,
   SET_RESULTS,
+  SET_ADD_TRENDING,
+  SET_REMOVE_TRENDING,
 } from "./movieTypes";
 
 const initialState = {
@@ -21,7 +23,6 @@ const movieReducer = (state = initialState, action) => {
       };
 
     case SET_UPDATE_FAVORITES:
-      console.log("hi");
       return {
         ...state,
         favoriteMovies: [action.payload, ...state.favoriteMovies],
@@ -37,6 +38,18 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         searchResults: action.payload,
+      };
+    case SET_ADD_TRENDING:
+      return {
+        ...state,
+        trendingMovies: [action.payload, ...state.trendingMovies],
+      };
+    case SET_REMOVE_TRENDING:
+      return {
+        ...state,
+        trendingMovies: state.trendingMovies.filter(
+          (x) => x.id !== action.payload
+        ),
       };
     default:
       return state;

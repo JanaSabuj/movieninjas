@@ -5,7 +5,7 @@ import NoMovieGeneric from "./NoMovieGeneric";
 import ResultItem from "./ResultItem";
 
 const Results = ({ movies }) => {
-  console.log(movies.results);
+  console.log(movies);
   return (
     <div className="row container">
       {movies === undefined || movies.length <= 0 ? (

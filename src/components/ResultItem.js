@@ -6,6 +6,8 @@ import {
   updateFavorites,
   updateTrending,
   deleteFavorites,
+  removeTrending,
+  addTrending,
 } from "../redux/movie/movieActions";
 
 const ResultItem = ({
@@ -15,8 +17,18 @@ const ResultItem = ({
   updateFavorites,
   updateTrending,
   deleteFavorites,
+  removeTrending,
+  addTrending,
 }) => {
-  const { title, rating, release_date, popularity, imgURL, isFavorite } = info;
+  const {
+    title,
+    rating,
+    release_date,
+    popularity,
+    imgURL,
+    isFavorite,
+    isTrending,
+  } = info;
   const imgPrefix = "https://image.tmdb.org/t/p/w500/";
   const handleClick = (id, isFavorite) => {
     if (isFavorite) {
@@ -25,6 +37,16 @@ const ResultItem = ({
     } else {
       info.isFavorite = !info.isFavorite;
       updateFavorites(info);
+    }
+  };
+
+  const handleClick2 = (id, isTrending) => {
+    if (isTrending) {
+      info.isTrending = !info.isTrending;
+      removeTrending(id);
+    } else {
+      info.isTrending = !info.isTrending;
+      addTrending(info);
     }
   };
 
@@ -84,6 +106,27 @@ const ResultItem = ({
                   )}
                 </div>
               </div>
+              <div className="card-action">
+                <div
+                  className={
+                    isTrending
+                      ? "btn waves-effect waves-light red darken-1"
+                      : "btn waves-effect waves-light green darken-1"
+                  }
+                  style={{ textAlign: "left" }}
+                  onClick={() => handleClick2(info.id, isTrending)}
+                >
+                  {isTrending ? (
+                    <>
+                      DEL<i className="material-icons right">trending_down</i>{" "}
+                    </>
+                  ) : (
+                    <>
+                      ADD <i className="material-icons right ">trending_up</i>{" "}
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -104,6 +147,8 @@ const mapDispatchToProps = (dispatch) => {
     updateTrending: (data) => dispatch(updateTrending(data)),
     updateFavorites: (data) => dispatch(updateFavorites(data)),
     deleteFavorites: (data) => dispatch(deleteFavorites(data)),
+    removeTrending: (data) => dispatch(removeTrending(data)),
+    addTrending: (data) => dispatch(addTrending(data)),
   };
 };
 
