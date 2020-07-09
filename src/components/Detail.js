@@ -137,22 +137,27 @@ const Detail = ({ favoriteMovies, trendingMovies }) => {
                   {production_companies === undefined ? (
                     <> </>
                   ) : (
+                    production_companies.length &&
                     production_companies.map((x) => `${x.name}, `)
                   )}
                 </p>
               </div>
               <div class="card-action">
                 <Link
-                  className="btn green"
+                  className="btn red"
                   style={{ marginRight: "10px", marginTop: "5px" }}
+                  to="/dashboard/favorites"
                 >
                   Back to Fav <i className="material-icons left">favorite</i>
                 </Link>
-
-                <div className="btn green" style={{ marginTop: "5px" }}>
+                <Link
+                  className="btn green"
+                  style={{ marginTop: "5px" }}
+                  to="/dashboard/trending"
+                >
                   Back to Trending{" "}
                   <i className="material-icons right">trending_up</i>
-                </div>
+                </Link>
               </div>
             </div>
           </div>
