@@ -22,7 +22,7 @@ const Dashboard = () => {
             component={Trending}
           />
           <Route exact path="/dashboard/favorites" component={Favorites} />
-          <Route path={["/details/:movieId", "/detailss"]} component={Detail} />
+          <Route path="/details/:movieId" component={Detail} />
         </Switch>
       </BrowserRouter>
     </div>
