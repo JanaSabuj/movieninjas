@@ -6,6 +6,7 @@ import Favorites from "./Favorites";
 import Detail from "./Detail";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Results from "./Results";
 
 const Dashboard = () => {
   return (
@@ -23,6 +24,7 @@ const Dashboard = () => {
           />
           <Route exact path="/dashboard/favorites" component={Favorites} />
           <Route path="/details/:movieId" component={Detail} />
+          <Route path="/dashboard/searchResult" component={Results} />
         </Switch>
       </BrowserRouter>
     </div>

@@ -41,7 +41,7 @@ export const deleteFavorites = (movieId) => {
 
 export const setResults = (data) => {
   return (dispatch) => {
-    // console.log(data);
+    console.log(data.results);
     const newData = [];
     for (const movie of data.results) {
       newData.push({
@@ -54,8 +54,7 @@ export const setResults = (data) => {
         isFavorite: false,
       });
     }
-    console.log(newData);
-    dispatch(setResultsUtil(data));
+    dispatch(setResultsUtil(newData));
   };
 };
 

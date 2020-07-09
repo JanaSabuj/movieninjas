@@ -21,11 +21,9 @@ const Search = ({ setResults, movies }) => {
 
     const queryString = new URLSearchParams(queryParams).toString();
     const URL = queryURL + queryString;
-    console.log(URL);
     axios
       .get(URL)
       .then((el) => {
-        console.log(el.data);
         setResults(el.data);
       })
       .catch((err) => {
