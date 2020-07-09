@@ -19,8 +19,6 @@ const ResultItem = ({
   const { title, rating, release_date, popularity, imgURL, isFavorite } = info;
   const imgPrefix = "https://image.tmdb.org/t/p/w500/";
   const handleClick = (id, isFavorite) => {
-    // console.log("click", id, isFavorite);
-    // console.log(favoriteMovies, trendingMovies);
     if (isFavorite) {
       info.isFavorite = !info.isFavorite;
       deleteFavorites(id);
