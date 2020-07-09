@@ -8,6 +8,7 @@ import {
   deleteFavorites,
   removeTrending,
   addTrending,
+  setRefreshState,
 } from "../redux/movie/movieActions";
 
 const ResultItem = ({
@@ -28,7 +29,16 @@ const ResultItem = ({
       deleteFavorites(id);
     } else {
       info.isFavorite = !info.isFavorite;
-      updateFavorites(info);
+
+      let flag = false;
+      for (let i = 0; i < favoriteMovies.length; i++) {
+        if (favoriteMovies[i].id === id) {
+          flag = true;
+          break;
+        }
+      }
+      if (flag) setRefreshState();
+      else updateFavorites(info);
     }
   };
 
@@ -37,8 +47,16 @@ const ResultItem = ({
       info.isTrending = !info.isTrending;
       removeTrending(id);
     } else {
+      let flag = false;
       info.isTrending = !info.isTrending;
-      addTrending(info);
+      for (let i = 0; i < trendingMovies.length; i++) {
+        if (trendingMovies[i].id === id) {
+          flag = true;
+          break;
+        }
+      }
+      if (flag) setRefreshState();
+      else addTrending(info);
     }
   };
 
@@ -140,6 +158,7 @@ const mapDispatchToProps = (dispatch) => {
     deleteFavorites: (data) => dispatch(deleteFavorites(data)),
     removeTrending: (data) => dispatch(removeTrending(data)),
     addTrending: (data) => dispatch(addTrending(data)),
+    setRefreshState: () => dispatch(setRefreshState()),
   };
 };
 

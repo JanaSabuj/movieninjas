@@ -6,6 +6,7 @@ import {
   SET_ADD_TRENDING,
   SET_REMOVE_TRENDING,
   SET_SEARCH_LOADING,
+  SET_REFRESH_STATE,
 } from "./movieTypes";
 
 export const updateTrending = (movieData) => {
@@ -59,6 +60,12 @@ export const removeTrending = (movieItem) => {
 export const setSearchLoading = () => {
   return (dispatch) => {
     dispatch(setSearchLoadingUtil());
+  };
+};
+
+export const refreshState = () => {
+  return (dispatch) => {
+    dispatch(setRefreshState());
   };
 };
 
@@ -128,5 +135,11 @@ export const setResultsUtil = (data) => {
 export const setSearchLoadingUtil = () => {
   return {
     type: SET_SEARCH_LOADING,
+  };
+};
+
+export const setRefreshState = () => {
+  return {
+    type: SET_REFRESH_STATE,
   };
 };

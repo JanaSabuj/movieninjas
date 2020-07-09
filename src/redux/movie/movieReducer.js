@@ -6,6 +6,7 @@ import {
   SET_ADD_TRENDING,
   SET_REMOVE_TRENDING,
   SET_SEARCH_LOADING,
+  SET_REFRESH_STATE,
 } from "./movieTypes";
 
 const initialState = {
@@ -57,6 +58,10 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         searchLoading: !state.searchLoading,
+      };
+    case SET_REFRESH_STATE:
+      return {
+        ...state,
       };
     default:
       return state;
