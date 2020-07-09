@@ -28,6 +28,7 @@ const Search = ({ setResults, movies, setSearchLoading }) => {
     const queryString = new URLSearchParams(queryParams).toString();
     const URL = queryURL + queryString;
     setSearchLoading(true);
+
     axios
       .get(URL)
       .then((el) => {
