@@ -5,6 +5,7 @@ import {
   SET_RESULTS,
   SET_ADD_TRENDING,
   SET_REMOVE_TRENDING,
+  SET_SEARCH_LOADING,
 } from "./movieTypes";
 
 export const updateTrending = (movieData) => {
@@ -52,6 +53,12 @@ export const removeTrending = (movieItem) => {
   return (dispatch) => {
     console.log(movieItem);
     dispatch(setRemoveTrending(movieItem));
+  };
+};
+
+export const setSearchLoading = () => {
+  return (dispatch) => {
+    dispatch(setSearchLoadingUtil());
   };
 };
 
@@ -115,5 +122,11 @@ export const setResultsUtil = (data) => {
   return {
     type: SET_RESULTS,
     payload: data,
+  };
+};
+
+export const setSearchLoadingUtil = () => {
+  return {
+    type: SET_SEARCH_LOADING,
   };
 };

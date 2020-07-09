@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 import axios from "axios";
 
-import { setResults } from "../redux/movie/movieActions";
+import { setResults, setSearchLoading } from "../redux/movie/movieActions";
 
-const Search = ({ setResults, movies }) => {
+const Search = ({ setResults, movies, setSearchLoading }) => {
   const [localData, setLocalData] = useState("Search for a Movie");
   const [loading, setLoading] = useState(false);
 
@@ -24,15 +24,18 @@ const Search = ({ setResults, movies }) => {
 
     const queryString = new URLSearchParams(queryParams).toString();
     const URL = queryURL + queryString;
+    setSearchLoading(true);
     axios
       .get(URL)
       .then((el) => {
         setResults(el.data);
         setLoading(false);
+        setSearchLoading(false);
       })
       .catch((err) => {
         console.log(err);
         setLoading(false);
+        setSearchLoading(false);
       });
   };
 
@@ -79,6 +82,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setResults: (data) => dispatch(setResults(data)),
+    setSearchLoading: () => dispatch(setSearchLoading()),
   };
 };
 

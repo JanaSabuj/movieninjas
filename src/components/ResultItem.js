@@ -20,15 +20,7 @@ const ResultItem = ({
   removeTrending,
   addTrending,
 }) => {
-  const {
-    title,
-    rating,
-    release_date,
-    popularity,
-    imgURL,
-    isFavorite,
-    isTrending,
-  } = info;
+  const { title, rating, release_date, imgURL, isFavorite, isTrending } = info;
   const imgPrefix = "https://image.tmdb.org/t/p/w500/";
   const handleClick = (id, isFavorite) => {
     if (isFavorite) {

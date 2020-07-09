@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import NoMovieGeneric from "./NoMovieGeneric";
 import ResultItem from "./ResultItem";
 
-const Results = ({ movies }) => {
+const Results = ({ movies, searchLoading }) => {
   console.log(movies);
   return (
     <div className="row container">
-      {movies === undefined || movies.length <= 0 ? (
+      {searchLoading ? (
+        <NoMovieGeneric msg="Loading Results ..." />
+      ) : movies === undefined || movies.length <= 0 ? (
         <NoMovieGeneric msg="No Search Results !" />
       ) : (
         movies.length &&
@@ -21,6 +23,7 @@ const Results = ({ movies }) => {
 const mapStateToProps = (state) => {
   return {
     movies: state.movieReducer.searchResults,
+    searchLoading: state.movieReducer.searchLoading,
   };
 };
 

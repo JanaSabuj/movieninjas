@@ -5,6 +5,7 @@ import {
   SET_RESULTS,
   SET_ADD_TRENDING,
   SET_REMOVE_TRENDING,
+  SET_SEARCH_LOADING,
 } from "./movieTypes";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   favoriteMovies: [],
   resultMovies: [],
   searchResults: [],
+  searchLoading: false,
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -50,6 +52,11 @@ const movieReducer = (state = initialState, action) => {
         trendingMovies: state.trendingMovies.filter(
           (x) => x.id !== action.payload
         ),
+      };
+    case SET_SEARCH_LOADING:
+      return {
+        ...state,
+        searchLoading: !state.searchLoading,
       };
     default:
       return state;
